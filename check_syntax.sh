@@ -9,7 +9,7 @@ if [ -z "$LIST" ]; then
 fi
 
 
-if [ -n "$CI_PULL_REQUESTS" ]; then
+if [ -n "$CI_PULL_REQUEST" ]; then
     git diff --name-only origin/master \
         | grep -e '.php$' \
         | xargs vendor/bin/phpcs -n --standard=PSR2 --report=checkstyle \
