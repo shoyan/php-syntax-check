@@ -5,3 +5,8 @@ if(true){ echo "True"; }
 function hoge() {
     return true;
 }
+
+function moge()
+{
+        return true;
+}
