@@ -7,6 +7,9 @@ if [ -z $LIST ]; then
     exit 0
 fi
 
+echo $CI_PULL_REQUESTS
+echo $CI_PULL_REQUEST
+
 vendor/bin/phpcs index.php --standard=PSR2 --report=checkstyle \
  | bundle exec checkstyle_filter-git diff origin/master \
  | bundle exec saddler report \
