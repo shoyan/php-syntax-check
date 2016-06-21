@@ -7,7 +7,11 @@ if [ -z $LIST ]; then
     exit 0
 fi
 
-gem install checkstyle_filter-git
-
 vendor/bin/phpcs index.php --standard=PSR2 --report=checkstyle \
  | checkstyle_filter-git diff origin/master
+
+vendor/bin/phpcs index.php --standard=PSR2 --report=checkstyle \
+ | bundle exec checkstyle_filter-git diff origin/master \
+ | bundle exec saddler report \
+   --require saddler/reporter/github \
+   --reporter Saddler::Reporter::Github::PullRequestComment
