@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Start"
-LIST=`git diff --name-only origin/master | grep '.php'`
+LIST=`git diff --name-only origin/master | grep -e '.php$'`
 
 if [ -z "$LIST" ]; then
     echo "PHP file not changed."
@@ -11,7 +11,7 @@ fi
 
 if [ -n "$CI_PULL_REQUESTS" ]; then
     git diff --name-only origin/master \
-        | grep '.php' \
+        | grep -e '.php$' \
         | xargs vendor/bin/phpcs -n --standard=PSR2 --report=checkstyle \
         | bundle exec checkstyle_filter-git diff origin/master \
         | bundle exec saddler report \
