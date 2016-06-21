@@ -9,4 +9,4 @@ if [ -z $LIST ]; then
 fi
 
 vendor/bin/phpcs index.php --standard=PSR2 --report=checkstyle \
- | checkstyle_filter-git diff origin/master
+ | bundle exec checkstyle_filter-git diff origin/master
