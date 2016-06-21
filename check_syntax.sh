@@ -8,9 +8,6 @@ if [ -z $LIST ]; then
 fi
 
 vendor/bin/phpcs index.php --standard=PSR2 --report=checkstyle \
- | bundle exec checkstyle_filter-git diff origin/master
-
-vendor/bin/phpcs index.php --standard=PSR2 --report=checkstyle \
  | bundle exec checkstyle_filter-git diff origin/master \
  | bundle exec saddler report \
    --require saddler/reporter/github \
