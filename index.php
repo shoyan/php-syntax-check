@@ -1,8 +1,11 @@
 <?php
     echo 'Hello world';
-if(true){ echo "True"; }
+if (true) {
+    echo "True";
+}
 
-function hoge() {
+function hoge()
+{
     return true;
 }
 
