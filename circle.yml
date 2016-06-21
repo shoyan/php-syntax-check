@@ -2,10 +2,10 @@ machine:
   timezone: Asia/Tokyo
   php:
     version: 5.6.14
-dependencies:
-  pre:
-    - gem install bundler
-    - bundle install
+# dependencies:
+#   pre:
+#     - gem install bundler
+#     - bundle install
 test:
   pre:
-    - check_syntax.sh
+    - ./check_syntax.sh
